@@ -19,7 +19,7 @@ resource "aws_security_group" "dev-sg" {
     protocol         = "tcp"
     cidr_blocks      = data.terraform_remote_state.allowed_ip.outputs.allowed_ips
   }
-g
+
   tags = {
     Name = "prod-sg"
   }
