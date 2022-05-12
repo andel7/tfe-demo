@@ -8,6 +8,8 @@ resource "aws_instance" "dev-server" {
   tags = {
     Name = "dev-server"
   }
+  monitoring = true
+  ebs_optimized = true
 }
 
 resource "aws_security_group" "dev-sg" {

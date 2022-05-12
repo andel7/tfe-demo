@@ -8,6 +8,8 @@ resource "aws_instance" "prod-server" {
   root_block_device {
     encrypted = true
   }
+  monitoring = true
+  ebs_optimized = true
 }
 
 resource "aws_security_group" "prod-sg" {
