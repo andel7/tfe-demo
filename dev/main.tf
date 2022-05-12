@@ -8,7 +8,7 @@ resource "aws_instance" "dev-server" {
 }
 
 resource "aws_security_group" "dev-sg" {
-  name        = "prod-sg"
+  name        = "dev-sg"
   description = "Allow inbound traffic"
   vpc_id      = "vpc-082db9842341c1010"
 
@@ -21,6 +21,6 @@ resource "aws_security_group" "dev-sg" {
   }
 
   tags = {
-    Name = "prod-sg"
+    Name = "dev-sg"
   }
 }
