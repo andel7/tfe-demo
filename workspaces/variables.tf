@@ -4,5 +4,5 @@ variable "allowed_ip" {
 }
 
 variable "slack_url" {
-  type = "string"
+  type = string
 }
