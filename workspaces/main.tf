@@ -34,9 +34,9 @@ resource "tfe_workspace" "prod" {
 }
 resource "tfe_run_trigger" "trigger_dev" {
   workspace_id  = tfe_workspace.dev.id
-  sourceable_id = data.tfe_workspace.tfe-demo
+  sourceable_id = data.tfe_workspace.tfe-demo.id
 }
 resource "tfe_run_trigger" "trigger_prod" {
   workspace_id  = tfe_workspace.prod.id
-  sourceable_id = data.tfe_workspace.tfe-demo
+  sourceable_id = data.tfe_workspace.tfe-demo.id
 }
