@@ -10,6 +10,9 @@ resource "aws_instance" "prod-server" {
   }
   monitoring = true
   ebs_optimized = true
+  metadata_options {
+    http_tokens = required
+  }
 }
 
 resource "aws_security_group" "prod-sg" {
