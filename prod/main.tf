@@ -12,6 +12,7 @@ resource "aws_instance" "prod-server" {
   ebs_optimized = true
   metadata_options {
     http_tokens = "required"
+    http_endpoint = "enabled"
   }
 }
 
