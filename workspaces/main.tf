@@ -1,5 +1,10 @@
 data "tfe_organization" "terasky" {
-  name = "terasky"
+  name = "TeraSky"
+}
+
+data "tfe_workspace" "tfe-demo" {
+  name         = "tfe-demo"
+  organization = "TeraSky"
 }
 
 resource "tfe_workspace" "dev" {
@@ -26,4 +31,12 @@ resource "tfe_workspace" "prod" {
     identifier     = "andel7/tfe-demo"
     oauth_token_id = "ot-yhaoJ6jzpGgPveNj"
   }
+}
+resource "tfe_run_trigger" "trigger_dev" {
+  workspace_id  = tfe_workspace.dev.id
+  sourceable_id = data.tfe_workspace.tfe-demo
+}
+resource "tfe_run_trigger" "trigger_prod" {
+  workspace_id  = tfe_workspace.prod.id
+  sourceable_id = data.tfe_workspace.tfe-demo
 }
