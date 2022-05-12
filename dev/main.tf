@@ -11,7 +11,7 @@ resource "aws_instance" "dev-server" {
   monitoring = true
   ebs_optimized = true
   metadata_options {
-    http_tokens = required
+    http_tokens = "required"
   }
 }
 
