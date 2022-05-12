@@ -2,11 +2,11 @@ resource "aws_instance" "dev-server" {
   ami           = "ami-00c90dbdc12232b58"
   instance_type = "t3.micro"
   vpc_security_group_ids = [aws_security_group.dev-sg.id]
-  root_block_device {
-    encrypted = true
-  }
   tags = {
     Name = "dev-server"
+  }
+  root_block_device {
+    encrypted = true
   }
   monitoring = true
   ebs_optimized = true
