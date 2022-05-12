@@ -17,7 +17,7 @@ resource "aws_security_group" "prod-sg" {
     from_port        = 443
     to_port          = 443
     protocol         = "tcp"
-    cidr_blocks      = [data.terraform_remote_state.allowed_ip.outputs.allowed_ips]
+    cidr_blocks      = data.terraform_remote_state.allowed_ip.outputs.allowed_ips
   }
 
   tags = {
