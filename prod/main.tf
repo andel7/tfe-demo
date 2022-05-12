@@ -1,9 +1,12 @@
 resource "aws_instance" "prod-server" {
   ami           = "ami-00c90dbdc12232b58"
   instance_type = "t3.micro"
-
+  vpc_security_group_ids = [aws_security_group.prod-sg.id]
   tags = {
     Name = "prod-server"
+  }
+  root_block_device {
+    encrypted = true
   }
 }
 

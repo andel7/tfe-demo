@@ -40,3 +40,12 @@ resource "tfe_run_trigger" "trigger_prod" {
   workspace_id  = tfe_workspace.prod.id
   sourceable_id = data.tfe_workspace.tfe-demo.id
 }
+
+resource "tfe_notification_configuration" "prod-notification" {
+  name             = "prod-notification"
+  enabled          = true
+  destination_type = "slack"
+  triggers         = ["run:needs_attention", "run:errored","run:completed"]
+  workspace_id     = tfe_workspace.prod.id
+  url = var.slack_url
+}
